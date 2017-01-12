@@ -1,4 +1,4 @@
-package com.pratamawijaya.rest.bookswarehouse
+package com.pratamawijaya.rest.bookswarehouse.data
 
 import com.pratamawijaya.rest.bookswarehouse.entity.Book
 import org.springframework.stereotype.Component
@@ -35,6 +35,10 @@ class BookDatabase {
   }
 
   fun getBooks() = books
+
+  fun getBookById(id: Int): Book {
+    return books[0]
+  }
 
   fun addBook(book: Book): Boolean {
     books.firstOrNull { it.ISBN == book.ISBN }?.let {
